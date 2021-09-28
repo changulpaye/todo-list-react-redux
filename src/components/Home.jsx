@@ -19,6 +19,11 @@ class Home extends Component {
     this.setState({ todo: e.currentTarget.value });
   };
 
+  handleAddTodo = () => {
+    this.setState({ todo: "" });
+    this.props.addTodo(this.state.todo);
+  };
+
   render() {
     return (
       <>
@@ -51,10 +56,7 @@ class Home extends Component {
             onChange={this.handleInput}
             type="text"
           />
-          <button
-            className="btn"
-            onClick={() => this.props.addTodo(this.state.todo)}
-          >
+          <button className="btn" onClick={this.handleAddTodo}>
             Add
           </button>
         </div>
