@@ -47,5 +47,9 @@ export const loadTodos = createSelector(
   (state) => state.todos,
   (todos) => todos
 );
+export const getIncompleteTodos = createSelector(
+  (state) => state.todos,
+  (todos) => todos.filter((todo) => !todo.isCompleted)
+);
 
 export default slice.reducer;
